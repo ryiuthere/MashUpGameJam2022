@@ -14,7 +14,7 @@ public class Player : BaseEntity
 
     // alignment = Alignments.Friendly;
 
-    public override void MovementHook() {
+    public override void Movement() {
         if (useRawInput)
         {
             movementDirection.x = Input.GetAxisRaw("Horizontal");

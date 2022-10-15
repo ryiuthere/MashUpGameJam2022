@@ -3,9 +3,10 @@ using System;
 public abstract class BaseEntity : MonoBehaviour
 {
     #region Movement
+    /** How fast the entity will move per second*/
     [SerializeField]
     public float movementSpeed = 10;
-
+    /** The entity's current movement. Should get updated in Movement() */
     public Vector2 movementDirection;
 
     #endregion
@@ -18,20 +19,31 @@ public abstract class BaseEntity : MonoBehaviour
     /** Remaining Heath of Entity*/
     protected int health;
 
+    /** Whether the entity is friendly or hostile towards the player */
     [SerializeField]
     protected Alignments alignment;
 
-    void Start()
+
+    /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED */
+    private void Start()
     {
         body2D = GetComponent<Rigidbody2D>();
         this.health = this.maxHealth;
         StartHook();
     }
 
-    void Update()
+    /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED */
+    private void Update()
     {
-        MovementHook();
+        Movement();
         AI();
+    }
+
+    /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED */
+    private void FixedUpdate()
+    {
+        body2D.MovePosition(body2D.position + movementDirection * movementSpeed * Time.fixedDeltaTime);
+        OnFixedUpdate();
     }
 
     public void OnHit(int damage) {
@@ -42,17 +54,16 @@ public abstract class BaseEntity : MonoBehaviour
         }
     }
 
-    /** Called in Start. Modify Start behaviors */
+    /** Hook to modify Start behavior */
     public void StartHook() {}
+    /** Hook to modify FixedUpdate behavior */
+    public void OnFixedUpdate() { }
     /** Called in Update. Controls the entity's movment */
-    public abstract void MovementHook();
-    /** Called once the entity's health hits 0 or less */
-    public abstract void OnDeath();
+    public abstract void Movement();
     /** called in update. Should be used for AI or player input not related to movement */
     public abstract void AI();
+    /** Called once the entity's reaches 0 */
+    public abstract void OnDeath();
 
-    private void FixedUpdate()
-    {
-        body2D.MovePosition(body2D.position + movementDirection * movementSpeed * Time.fixedDeltaTime);
-    }
+
 }
