@@ -5,21 +5,26 @@ using UnityEngine;
 
 public class EnemyShooter : EnemyChaser
 {
+    /** Prefab projectile object this enemy will shoot */
     [SerializeField]
     public GameObject projectile;
 
+    /** The velocity of projectiles shot by this enemy */
     [SerializeField]
     protected float projectileSpeed = 2.4f;
 
+    /** The duration (seconds) between shots */
     [SerializeField]
     protected float fireRate = 0.6f;
     protected float fireCooldown;
 
+    /** How much damage this enemy's shots will do */
     [SerializeField]
     protected int projectileDamage = 15;
 
     public override void AI()
     {
+        // Shoot if we exceeded our cooldown, and reset the cooldown
         fireCooldown += Time.deltaTime;
         if (fireCooldown >= fireRate)
         {
@@ -30,6 +35,7 @@ public class EnemyShooter : EnemyChaser
 
     public virtual void Shoot()
     {
+        // Shoot aprojectile towards the player with our projectile stats
         GameObject proj = Instantiate(projectile, transform.position, Quaternion.identity);
         BaseProjectile projScript = proj.GetComponent<BaseProjectile>();
         projScript.movementDirection = ToPlayer;

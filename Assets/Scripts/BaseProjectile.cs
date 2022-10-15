@@ -17,6 +17,7 @@ public class BaseProjectile : MonoBehaviour
     [SerializeField]
     public Alignments alignment;
 
+    /** How much damage this projectile does on hit */
     [SerializeField]
     public int damage;
 
@@ -39,6 +40,7 @@ public class BaseProjectile : MonoBehaviour
     {
         movementDirection.Normalize();
         body2D.MovePosition(body2D.position + movementDirection * movementSpeed * Time.fixedDeltaTime);
+        // Point the way we're going
         float angle = Mathf.Atan2(movementDirection.y, movementDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         OnFixedUpdate();
@@ -61,7 +63,7 @@ public class BaseProjectile : MonoBehaviour
             }
             target.OnHit(this.damage);
         }
-        // Destroy me
+        // Destroy me if I shouldb e destroyed after contact
         bool destroyMe = PostCollision(target, collision);
         if (destroyMe)
         {

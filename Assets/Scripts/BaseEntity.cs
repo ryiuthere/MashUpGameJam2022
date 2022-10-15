@@ -32,7 +32,7 @@ public abstract class BaseEntity : MonoBehaviour
         StartHook();
     }
 
-    /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED. Exception made for BaseEnemy */
+    /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED. */
     protected virtual void Update()
     {
         if (!ShouldUpdate())
