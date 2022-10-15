@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 // https://weeklyhow.com/unity-top-down-character-movement/
 // https://stuartspixelgames.com/2018/06/24/simple-2d-top-down-movement-unity-c/
@@ -12,9 +11,15 @@ public class Player : BaseEntity
     [SerializeField]
     public float moveLimiter = 0.7f;
 
+    public HealthBar healthBar;
+
     // alignment = Alignments.Friendly;
 
     public override void Movement() {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            this.OnHit(1);
+        }
         if (useRawInput)
         {
             movementDirection.x = Input.GetAxisRaw("Horizontal");
@@ -30,6 +35,12 @@ public class Player : BaseEntity
         {
             movementDirection *= moveLimiter;
         }
+    }
+
+    public override void OnHit(int damage)
+    {
+        base.OnHit(damage);
+        healthBar.UpdateHealthBar(this.health - damage, this.maxHealth);
     }
 
     public override void OnDeath() {
