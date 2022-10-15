@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1133673998219090672}
   - component: {fileID: 1133673998219090687}
   - component: {fileID: 8104175322314045607}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Meat Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}

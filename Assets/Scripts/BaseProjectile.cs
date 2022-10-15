@@ -7,7 +7,6 @@ public class BaseProjectile : MonoBehaviour
     [SerializeField]
     public float movementSpeed = 10;
     /** The entity's current movement. Should be set by creator, or updated in OnUpdate if it is complex */
-    [SerializeField]
     public Vector2 movementDirection;
 
     #endregion

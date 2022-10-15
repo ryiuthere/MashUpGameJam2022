@@ -18,8 +18,12 @@ public class Player : BaseEntity
     [SerializeField]
     protected GameObject projectile;
 
+    public override void StartHook()
+    {
+        alignment = Alignments.Friendly;
+        base.StartHook();
+    }
 
-    // alignment = Alignments.Friendly;
 
     public override void Movement()
     {
@@ -43,7 +47,8 @@ public class Player : BaseEntity
     public override void OnDeath()
     {
         Debug.Log("You died.");
-        Destroy(gameObject);
+        // @TODO: better death
+        this.transform.rotation = new Quaternion(90, 0, 0, 0);
     }
 
     public override void AI()
@@ -59,5 +64,10 @@ public class Player : BaseEntity
             var towardsMouse = (mouseWorldCoordinates - transform.position).normalized;
             projectileScript.movementDirection = towardsMouse;
         }
+    }
+
+    public override bool ShouldUpdate()
+    {
+        return health > 0;
     }
 }

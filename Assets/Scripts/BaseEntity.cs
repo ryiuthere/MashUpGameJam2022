@@ -7,7 +7,7 @@ public abstract class BaseEntity : MonoBehaviour
     [SerializeField]
     public float movementSpeed = 10;
     /** The entity's current movement. Should get updated in Movement() */
-    public Vector2 movementDirection;
+    protected Vector2 movementDirection;
 
     #endregion
 
@@ -35,6 +35,10 @@ public abstract class BaseEntity : MonoBehaviour
     /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED. Exception made for BaseEnemy */
     protected virtual void Update()
     {
+        if (!ShouldUpdate())
+        {
+            return;
+        }
         Movement();
         AI();
     }
@@ -42,6 +46,10 @@ public abstract class BaseEntity : MonoBehaviour
     /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED */
     private void FixedUpdate()
     {
+        if (!ShouldUpdate())
+        {
+            return;
+        }
         body2D.MovePosition(body2D.position + movementDirection * movementSpeed * Time.fixedDeltaTime);
         OnFixedUpdate();
     }
@@ -65,4 +73,6 @@ public abstract class BaseEntity : MonoBehaviour
     public abstract void AI();
     /** Called once the entity's reaches 0 */
     public abstract void OnDeath();
+
+    public virtual bool ShouldUpdate() { return true; }
 }

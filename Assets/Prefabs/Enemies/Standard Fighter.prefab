@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5084781678099816144}
   - component: {fileID: 5084781678099816159}
   - component: {fileID: 4133331409910165701}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Standard Fighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

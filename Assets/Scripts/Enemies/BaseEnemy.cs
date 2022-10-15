@@ -9,15 +9,6 @@ public class BaseEnemy : BaseEntity
     protected float activationRange = 12f;
 
     protected bool _activated = false;
-    public bool activated
-    {
-        get
-        {
-            if (_activated) return true;
-            _activated = Vector2.Distance(transform.position, player.transform.position) <= activationRange;
-            return _activated;
-        }
-    }
 
     protected GameObject player;
 
@@ -33,12 +24,6 @@ public class BaseEnemy : BaseEntity
         this.player = GameObject.Find("Player");
     }
 
-    protected override void Update()
-    {
-        if (!activated) return;
-        base.Update();
-    }
-
     public override void OnDeath()
     {
         Destroy(gameObject);
@@ -46,4 +31,10 @@ public class BaseEnemy : BaseEntity
 
     public override void Movement() { }
     public override void AI() { }
+    public override bool ShouldUpdate()
+    {
+        if (_activated) return true;
+        _activated = Vector2.Distance(transform.position, player.transform.position) <= activationRange;
+        return _activated;
+    }
 }
