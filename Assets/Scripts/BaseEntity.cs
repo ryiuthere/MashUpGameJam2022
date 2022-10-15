@@ -32,8 +32,8 @@ public abstract class BaseEntity : MonoBehaviour
         StartHook();
     }
 
-    /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED */
-    private void Update()
+    /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED. Exception made for BaseEnemy */
+    protected virtual void Update()
     {
         Movement();
         AI();

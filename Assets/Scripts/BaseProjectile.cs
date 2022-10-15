@@ -19,7 +19,7 @@ public class BaseProjectile : MonoBehaviour
     public Alignments alignment;
 
     [SerializeField]
-    protected int damage;
+    public int damage;
 
 
     /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED */
@@ -50,7 +50,6 @@ public class BaseProjectile : MonoBehaviour
         // Makes it so that the projectile can no longer collide with the same target
         // Mainly a lazy way to let enemy projectiles pass through other enemies.
         Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>(), true);
-        Debug.Log($"Collisions Entered {collision.gameObject.name}");
 
         BaseEntity target = collision.transform.GetComponent<BaseEntity>();
         PreCollision(target, collision);

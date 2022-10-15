@@ -43,16 +43,12 @@ public class Player : BaseEntity
     public override void OnDeath()
     {
         Debug.Log("You died.");
+        Destroy(gameObject);
     }
 
     public override void AI()
     {
-
-    }
-
-    public override void OnFixedUpdate()
-    {
-        fireCooldown += Time.fixedDeltaTime;
+        fireCooldown += Time.deltaTime;
         if (fireCooldown >= fireRate)
         {
             fireCooldown -= fireRate;
