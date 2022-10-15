@@ -21,7 +21,7 @@ public abstract class BaseEntity : MonoBehaviour
 
     /** Whether the entity is friendly or hostile towards the player */
     [SerializeField]
-    protected Alignments alignment;
+    public Alignments alignment { get; protected set; }
 
 
     /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED */
