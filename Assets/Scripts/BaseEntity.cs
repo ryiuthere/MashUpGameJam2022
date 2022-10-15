@@ -46,8 +46,9 @@ public abstract class BaseEntity : MonoBehaviour
         OnFixedUpdate();
     }
 
-    public void OnHit(int damage) {
-        // @TODO: finish once projectils exist
+    /** Triggered when damage is taken, should almost always call base.OnHit() when overriding*/
+    public virtual void OnHit(int damage) {
+        // @TODO: finish once projectiles exist
         this.health = Math.Max(0, this.health - damage);
         if (this.health <= 0) {
             OnDeath();
@@ -55,15 +56,13 @@ public abstract class BaseEntity : MonoBehaviour
     }
 
     /** Hook to modify Start behavior */
-    public void StartHook() {}
+    public virtual void StartHook() {}
     /** Hook to modify FixedUpdate behavior */
-    public void OnFixedUpdate() { }
+    public virtual void OnFixedUpdate() { }
     /** Called in Update. Controls the entity's movment */
     public abstract void Movement();
     /** called in update. Should be used for AI or player input not related to movement */
     public abstract void AI();
     /** Called once the entity's reaches 0 */
     public abstract void OnDeath();
-
-
 }
