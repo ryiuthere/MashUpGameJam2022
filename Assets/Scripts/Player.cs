@@ -14,8 +14,22 @@ public class Player : BaseEntity
     public HealthBar healthBar;
 
     // alignment = Alignments.Friendly;
+    [SerializeField] 
+    protected float fireRate = 0.6f;
+    protected float fireCooldown = 0f;
 
-    public override void Movement() {
+    [SerializeField]
+    protected GameObject projectile;
+
+    public override void StartHook()
+    {
+        alignment = Alignments.Friendly;
+        base.StartHook();
+    }
+
+
+    public override void Movement()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             this.OnHit(1);
@@ -43,15 +57,30 @@ public class Player : BaseEntity
         healthBar.UpdateHealthBar(this.health - damage, this.maxHealth);
     }
 
-    public override void OnDeath() {
+    public override void OnDeath()
+    {
         Debug.Log("You died.");
+        // @TODO: better death
+        this.transform.rotation = new Quaternion(90, 0, 0, 0);
     }
 
-    public override void AI() {
-        // TODO: add shooting logic. remove placeholder dieing
-        if (movementDirection.magnitude >= 0.8f)
+    public override void AI()
+    {
+        fireCooldown += Time.deltaTime;
+        if (fireCooldown >= fireRate)
         {
-            this.OnHit(1);
+            fireCooldown -= fireRate;
+            var proj = Instantiate(projectile, transform.position, Quaternion.identity);
+            var projectileScript = proj.GetComponent<BaseProjectile>();
+
+            var mouseWorldCoordinates = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var towardsMouse = (mouseWorldCoordinates - transform.position).normalized;
+            projectileScript.movementDirection = towardsMouse;
         }
+    }
+
+    public override bool ShouldUpdate()
+    {
+        return health > 0;
     }
 }
