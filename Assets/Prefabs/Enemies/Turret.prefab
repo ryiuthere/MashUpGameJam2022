@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9208822174710330796
+--- !u!1 &8856453008984504634
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9208822174710330793}
-  - component: {fileID: 9208822174710330794}
-  - component: {fileID: 9208822174710330792}
-  - component: {fileID: 9208822174710330791}
-  - component: {fileID: 1063663141}
+  - component: {fileID: 8856453008984504639}
+  - component: {fileID: 8856453008984504636}
+  - component: {fileID: 8856453008984504638}
+  - component: {fileID: 8856453008984504625}
+  - component: {fileID: 370491356412434219}
   m_Layer: 7
-  m_Name: Player
-  m_TagString: Player
+  m_Name: Turret
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9208822174710330793
+--- !u!4 &8856453008984504639
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9208822174710330796}
+  m_GameObject: {fileID: 8856453008984504634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.86, y: 3.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &9208822174710330794
+--- !u!212 &8856453008984504636
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9208822174710330796}
+  m_GameObject: {fileID: 8856453008984504634}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -8409067677610051592, guid: 6644dcf3ee0efd04e8a476b3e7039e26,
     type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.74509805, g: 0.35686272, b: 0.7175033, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -88,14 +88,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &9208822174710330792
+--- !u!50 &8856453008984504638
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9208822174710330796}
+  m_GameObject: {fileID: 8856453008984504634}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -109,13 +109,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &9208822174710330791
+--- !u!61 &8856453008984504625
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9208822174710330796}
+  m_GameObject: {fileID: 8856453008984504634}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -135,23 +135,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.86}
   m_EdgeRadius: 0
---- !u!114 &1063663141
+--- !u!114 &370491356412434219
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9208822174710330796}
+  m_GameObject: {fileID: 8856453008984504634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ebbe1d06069d5846b5314118c1eb698, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bd2f148b613c1b47bfe728f389c9667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 0
   movementDirection: {x: 0, y: 0}
-  maxHealth: 100
-  useRawInput: 0
-  moveLimiter: 0.7
-  fireRate: 0.6
-  projectile: {fileID: 1220047941744070385, guid: 73e3dd69c0db60148a9e95006eaa7ae3,
+  maxHealth: 0
+  activationRange: 8
+  targetDistance: 0
+  projectile: {fileID: 1822053873960159841, guid: b794b5a900051ff4387e5d5a94d47284,
     type: 3}
+  projectileSpeed: 2.4
+  fireRate: 1.2
+  projectileDamage: 25
