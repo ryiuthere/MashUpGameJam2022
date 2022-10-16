@@ -31,6 +31,7 @@ public class Player : BaseEntity
 
     public override void StartHook()
     {
+        healthBar.UpdateHealthBar(this.health, this.maxHealth);
         itemIndicator.UpdateItemIndicator(projectile);
         expIndicator.UpdateExp(experience);
         // itemIndicator.UpdateItemIndicator()
@@ -61,7 +62,7 @@ public class Player : BaseEntity
     public override void OnHit(int damage)
     {
         base.OnHit(damage);
-        healthBar.UpdateHealthBar(this.health - damage, this.maxHealth);
+        healthBar.UpdateHealthBar(this.health, this.maxHealth);
     }
 
     public override void OnDeath()
