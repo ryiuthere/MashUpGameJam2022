@@ -11,18 +11,29 @@ public class Player : BaseEntity
     [SerializeField]
     public float moveLimiter = 0.7f;
 
-    public HealthBar healthBar;
+    /** HUD variables **/
+    [SerializeField]
+    protected HealthBar healthBar;
+    [SerializeField]
+    protected ItemIndicator itemIndicator;
+    [SerializeField]
+    protected ExpIndicator expIndicator;
 
     // alignment = Alignments.Friendly;
     [SerializeField] 
     protected float fireRate = 0.6f;
     protected float fireCooldown = 0f;
 
+    protected int experience = 150;
+
     [SerializeField]
     protected GameObject projectile;
 
     public override void StartHook()
     {
+        itemIndicator.UpdateItemIndicator(projectile);
+        expIndicator.UpdateExp(experience);
+        // itemIndicator.UpdateItemIndicator()
         alignment = Alignments.Friendly;
         base.StartHook();
     }
@@ -30,10 +41,6 @@ public class Player : BaseEntity
 
     public override void Movement()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            this.OnHit(1);
-        }
         if (useRawInput)
         {
             movementDirection.x = Input.GetAxisRaw("Horizontal");
