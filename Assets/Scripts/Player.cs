@@ -19,12 +19,8 @@ public class Player : BaseEntity
     [SerializeField]
     protected ExpIndicator expIndicator;
 
-    /** Invulnerability seconds after taking damage  */
-    [SerializeField]
-    protected float iframes = 0.2f;
-    protected float iframeCooldown;
-
-    [SerializeField]
+    // alignment = Alignments.Friendly;
+    [SerializeField] 
     protected float fireRate = 0.6f;
     protected float fireCooldown = 0f;
 
@@ -38,8 +34,8 @@ public class Player : BaseEntity
         healthBar.UpdateHealthBar(this.health, this.maxHealth);
         itemIndicator.UpdateItemIndicator(projectile);
         expIndicator.UpdateExp(experience);
+        // itemIndicator.UpdateItemIndicator()
         alignment = Alignments.Friendly;
-        iframeCooldown = iframes;
         base.StartHook();
     }
 
@@ -65,11 +61,7 @@ public class Player : BaseEntity
 
     public override void OnHit(int damage)
     {
-        if (iframeCooldown >= iframes)
-        {
-            base.OnHit(damage);
-            iframeCooldown = 0;
-        }
+        base.OnHit(damage);
         healthBar.UpdateHealthBar(this.health, this.maxHealth);
     }
 
@@ -82,7 +74,6 @@ public class Player : BaseEntity
 
     public override void AI()
     {
-        iframeCooldown += Time.deltaTime;
         fireCooldown += Time.deltaTime;
         if (fireCooldown >= fireRate)
         {
