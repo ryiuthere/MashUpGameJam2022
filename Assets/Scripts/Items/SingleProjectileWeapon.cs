@@ -3,7 +3,6 @@ using UnityEngine;
 public class SingleProjectileWeapon : WeaponBehavior
 {
     protected string projectilePath = "Prefabs/Projectiles/PlayerProjectile";
-
     
     protected float fireRate = 0.6f;
     protected float fireCooldown = 0f;

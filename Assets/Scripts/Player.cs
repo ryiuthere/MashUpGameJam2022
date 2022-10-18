@@ -16,22 +16,11 @@ public class Player : BaseEntity
     protected HealthBar healthBar;
     [SerializeField]
     protected ItemIndicator itemIndicator;
-    [SerializeField]
-    protected ExpIndicator expIndicator;
 
     /** Invulnerability seconds after taking damage  */
     [SerializeField]
     protected float iframes = 0.2f;
     protected float iframeCooldown;
-
-    // [SerializeField]
-    // protected float fireRate = 0.6f;
-    // protected float fireCooldown = 0f;
-
-    protected int experience = 150;
-
-    // [SerializeField]
-    // protected GameObject projectile;
 
     [SerializeField]
     protected GameObject item;
@@ -40,10 +29,6 @@ public class Player : BaseEntity
     public override void StartHook()
     {
         healthBar.UpdateHealthBar(this.health, this.maxHealth);
-        // if (weapon != null) {
-        //     itemIndicator.UpdateItemIndicator(item);
-        // }
-        // expIndicator.UpdateExp(experience);
         alignment = Alignments.Friendly;
         iframeCooldown = iframes;
         base.StartHook();
@@ -98,17 +83,6 @@ public class Player : BaseEntity
         if (weapon != null) {
             weapon.UpdateCooldown();
         }
-        // fireCooldown += Time.deltaTime;
-        // if (fireCooldown >= fireRate)
-        // {
-        //     fireCooldown -= fireRate;
-        //     var proj = Instantiate(projectile, transform.position, Quaternion.identity);
-        //     var projectileScript = proj.GetComponent<BaseProjectile>();
-
-        //     var mouseWorldCoordinates = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //     var towardsMouse = (mouseWorldCoordinates - transform.position).normalized;
-        //     projectileScript.movementDirection = towardsMouse;
-        // }
     }
 
     public override bool ShouldUpdate()
