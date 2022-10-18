@@ -52,12 +52,6 @@ public class Player : BaseEntity
         {
             movementDirection *= moveLimiter;
         }
-
-        if (Input.GetButton("Fire1")) {
-            if (weapon != null) {
-                weapon.Attack(this);
-            }
-        }
     }
 
     public override void OnHit(int damage)
@@ -82,6 +76,12 @@ public class Player : BaseEntity
         iframeCooldown += Time.deltaTime;
         if (weapon != null) {
             weapon.UpdateCooldown();
+        }
+
+        if (Input.GetButton("Fire1")) {
+            if (weapon != null) {
+                weapon.Attack(this);
+            }
         }
     }
 
