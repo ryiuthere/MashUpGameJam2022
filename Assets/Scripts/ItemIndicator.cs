@@ -10,5 +10,6 @@ public class ItemIndicator : MonoBehaviour
     public void UpdateItemIndicator(GameObject item) {
         var itemSprite = item.GetComponent<SpriteRenderer>().sprite;
         itemIndicatorImage.sprite = itemSprite;
+        itemIndicatorImage.color = new Color(255, 255, 255, 255);
     }
 }
