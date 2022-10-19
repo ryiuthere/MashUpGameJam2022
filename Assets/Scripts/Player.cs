@@ -56,7 +56,7 @@ public class Player : BaseEntity
 
     public override void OnHit(int damage)
     {
-        if (iframeCooldown >= iframes)
+        if (iframeCooldown >= iframes && damage > 0)
         {
             base.OnHit(damage);
             iframeCooldown = 0;

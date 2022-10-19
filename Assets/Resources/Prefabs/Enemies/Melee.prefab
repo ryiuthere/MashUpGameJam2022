@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1133673998219090687}
   - component: {fileID: 8104175322314045607}
   m_Layer: 7
-  m_Name: Meat Shield
+  m_Name: Melee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133673998219090676}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2.4
-  movementDirection: {x: 0, y: 0}
   maxHealth: 50
   activationRange: 8
-  targetDistance: 3
+  contactDamage: 5
+  targetDistance: 0
