@@ -148,6 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0
-  movementDirection: {x: 0, y: 0}
   maxHealth: 25
   activationRange: 0
+  contactDamage: 0

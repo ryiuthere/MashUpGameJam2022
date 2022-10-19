@@ -8,6 +8,10 @@ public class BaseEnemy : BaseEntity
     [SerializeField]
     protected float activationRange = 12f;
 
+    /** Melee damage */
+    [SerializeField]
+    protected int contactDamage = 5;
+
     protected bool _activated = false;
 
     protected GameObject player;
@@ -27,6 +31,25 @@ public class BaseEnemy : BaseEntity
     public override void OnDeath()
     {
         Destroy(gameObject);
+    }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        Player target = collision.gameObject.GetComponentInParent<Player>();
+        if (target != null)
+        {
+            target.OnHit(contactDamage);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        // iframes willprevent this from immediately deleting the player
+        Player target = collision.gameObject.GetComponentInParent<Player>();
+        if (target != null)
+        {
+            target.OnHit(contactDamage);
+        }
     }
 
     public override void Movement() { }
