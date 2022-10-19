@@ -22,18 +22,22 @@ public class Player : BaseEntity
     protected float iframes = 0.2f;
     protected float iframeCooldown;
 
-    [SerializeField]
     protected GameObject item;
     protected WeaponBehavior weapon;
+    protected Animator animator;
+    protected SpriteRenderer spriteRenderer;
 
     public override void StartHook()
     {
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         healthBar.UpdateHealthBar(this.health, this.maxHealth);
         alignment = Alignments.Friendly;
         iframeCooldown = iframes;
+        animator.SetBool("Running", false);
         base.StartHook();
     }
-
 
     public override void Movement()
     {
@@ -46,6 +50,25 @@ public class Player : BaseEntity
         {
             movementDirection.x = Input.GetAxis("Horizontal");
             movementDirection.y = Input.GetAxis("Vertical");
+        }
+
+        if (movementDirection.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (movementDirection.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+
+        if (movementDirection.x != 0 || movementDirection.y != 0)
+        {
+            animator.SetBool("Running", true);
+        }
+        else
+        {
+            animator.SetBool("Running", false);
+
         }
 
         if (movementDirection.x != 0 && movementDirection.y != 0)
