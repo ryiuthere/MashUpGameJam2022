@@ -1,4 +1,4 @@
-﻿using UnityEngine; 
+﻿using UnityEngine;
 
 // https://weeklyhow.com/unity-top-down-character-movement/
 // https://stuartspixelgames.com/2018/06/24/simple-2d-top-down-movement-unity-c/
@@ -57,7 +57,20 @@ public class BaseEnemy : BaseEntity
     public override bool ShouldUpdate()
     {
         if (_activated) return true;
-        _activated = Vector2.Distance(transform.position, player.transform.position) <= activationRange;
+        bool inRange = Vector2.Distance(transform.position, player.transform.position) <= activationRange;
+        // Only check LoS if in range to save computation
+        if (inRange) {
+            // layer mask only allows it to see things on the default layer, which should be the player's melee htibox and walls
+            LayerMask mask = LayerMask.GetMask(new string[] { "Default" });
+            RaycastHit2D LoS = Physics2D.Raycast(gameObject.transform.position,  this.ToPlayer, activationRange, mask);
+            // Should be terrain or the player's melee hitbox
+            if (LoS.collider.GetComponentInParent<Player>() != null)
+            {
+                _activated = true;
+            }
+
+        }
+
         return _activated;
     }
 }

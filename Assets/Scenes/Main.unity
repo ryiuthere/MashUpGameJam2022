@@ -496,7 +496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 288097779}
   - component: {fileID: 288097778}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -755,6 +755,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraTargetTrigger (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8039307044411394774, guid: 11c7b3597b60c0a4e9f5ca3234c17fdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11c7b3597b60c0a4e9f5ca3234c17fdf, type: 3}
 --- !u!1001 &565251623
@@ -829,6 +834,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraTargetTrigger (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8039307044411394774, guid: 11c7b3597b60c0a4e9f5ca3234c17fdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11c7b3597b60c0a4e9f5ca3234c17fdf, type: 3}
 --- !u!1001 &581453925
@@ -842,6 +852,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CameraZoomTrigger (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325503743199224200, guid: 2cdb3bb6802818b4c8a434acecd81219,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7325503743199224206, guid: 2cdb3bb6802818b4c8a434acecd81219,
         type: 3}
@@ -986,6 +1001,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CameraTargetTrigger (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039307044411394774, guid: 11c7b3597b60c0a4e9f5ca3234c17fdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11c7b3597b60c0a4e9f5ca3234c17fdf, type: 3}
@@ -1156,11 +1176,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
-  movementDirection: {x: 0, y: 0}
   maxHealth: 0
-  alignment: 0
   useRawInput: 0
   moveLimiter: 0.7
+  healthBar: {fileID: 0}
+  itemIndicator: {fileID: 0}
+  iframes: 0.2
 --- !u!1 &1151226421
 GameObject:
   m_ObjectHideFlags: 0
@@ -6241,7 +6262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1821701594}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Triggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6477,6 +6498,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraFreezeAxisTrigger (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4481565889342671185, guid: f59e13f5b34c3514da70671372950914,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4481565889342671189, guid: f59e13f5b34c3514da70671372950914,
         type: 3}
       propertyPath: m_RootOrder
@@ -6676,11 +6702,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
-  movementDirection: {x: 0, y: 0}
   maxHealth: 0
-  alignment: 0
   useRawInput: 0
   moveLimiter: 0.7
+  healthBar: {fileID: 0}
+  itemIndicator: {fileID: 0}
+  iframes: 0.2
 --- !u!50 &2009939665
 Rigidbody2D:
   serializedVersion: 4
@@ -6793,6 +6820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CameraFreezeAxisTrigger (0)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481565889342671185, guid: f59e13f5b34c3514da70671372950914,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4481565889342671189, guid: f59e13f5b34c3514da70671372950914,
         type: 3}
@@ -7036,6 +7068,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraZoomTrigger (0)
       objectReference: {fileID: 0}
+    - target: {fileID: 7325503743199224200, guid: 2cdb3bb6802818b4c8a434acecd81219,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7325503743199224206, guid: 2cdb3bb6802818b4c8a434acecd81219,
         type: 3}
       propertyPath: m_RootOrder
@@ -7174,6 +7211,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CameraTargetTrigger (0)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039307044411394774, guid: 11c7b3597b60c0a4e9f5ca3234c17fdf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11c7b3597b60c0a4e9f5ca3234c17fdf, type: 3}
