@@ -122,4 +122,9 @@ public class Player : BaseEntity
         weapon = newWeapon;
        
     }
+
+    public void Heal(int healing) {
+        health = Mathf.Clamp(healing, 0, maxHealth);
+        healthBar.UpdateHealthBar(this.health, this.maxHealth);
+    }
 }
