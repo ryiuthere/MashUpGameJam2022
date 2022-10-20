@@ -124,6 +124,7 @@ public class Player : BaseEntity
     }
 
     public void Heal(int healing) {
-        health = Mathf.Clamp(healing, maxHealth, 0);
+        health = Mathf.Clamp(healing, 0, maxHealth);
+        healthBar.UpdateHealthBar(this.health, this.maxHealth);
     }
 }
