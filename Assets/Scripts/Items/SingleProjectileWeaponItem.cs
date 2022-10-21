@@ -1,5 +1,8 @@
+using UnityEngine;
+
 public class SingleProjectileWeaponItem : WeaponItem {
-    public SingleProjectileWeaponItem() {
-        behavior = new SingleProjectileWeapon();
+    void Start() {
+        Debug.Log("INSTANTIATING: " + fireRate);
+        behavior = new SingleProjectileWeapon(fireRate);
     }
 }

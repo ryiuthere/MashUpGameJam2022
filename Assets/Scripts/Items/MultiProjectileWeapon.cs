@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class MultiProjectileWeapon : WeaponBehavior
 {
+    public MultiProjectileWeapon (float initFireRate = 1f) {
+        fireRate = initFireRate;
+    }
     protected string projectilePath = "Prefabs/Projectiles/PlayerProjectile";
     
-    protected float fireRate = 1f;
+    protected float fireRate;
     
     protected float fireCooldown = 0f;
 
