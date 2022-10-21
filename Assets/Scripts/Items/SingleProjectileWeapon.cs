@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class SingleProjectileWeapon : WeaponBehavior {
     public SingleProjectileWeapon(float initFireRate = 0.6f) {
-        Debug.Log(initFireRate + ", " + fireRate);
         fireRate = initFireRate;
     }
     

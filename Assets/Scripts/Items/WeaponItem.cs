@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class WeaponItem : BaseItem {
-    public WeaponItem() {}
-    
-    [SerializeField]
-    protected float fireRate = 1f;
+public class WeaponItem : BaseItem
+{
+  public WeaponItem() { }
 
-    protected WeaponBehavior behavior;
+  [SerializeField]
+  protected float fireRate = 1f;
 
-    public override void OnPickup(Player player)
-    {
-        player.SetItem(gameObject);
-        player.SetWeapon(behavior);
-    }
+  protected WeaponBehavior behavior;
+
+  public override void OnPickup(Player player)
+  {
+    player.SetItem(gameObject);
+    player.SetWeapon(behavior);
+  }
 }
