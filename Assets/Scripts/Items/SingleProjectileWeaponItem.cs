@@ -1,5 +1,7 @@
-public class SingleProjectileWeaponItem : WeaponItem {
-    public SingleProjectileWeaponItem() {
-        behavior = new SingleProjectileWeapon();
-    }
+public class SingleProjectileWeaponItem : WeaponItem
+{
+  void Start()
+  {
+    behavior = new SingleProjectileWeapon(fireRate);
+  }
 }
