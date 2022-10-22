@@ -23,11 +23,13 @@ public abstract class BaseEntity : MonoBehaviour
     [SerializeField]
     public Alignments alignment { get; protected set; }
 
+    protected Animator animator;
 
     /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED */
     private void Start()
     {
         body2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         this.health = this.maxHealth;
         StartHook();
     }
@@ -50,6 +52,8 @@ public abstract class BaseEntity : MonoBehaviour
         {
             return;
         }
+        
+        animator.SetBool("Moving", movementDirection != Vector2.zero);
         body2D.MovePosition(body2D.position + movementDirection * movementSpeed * Time.fixedDeltaTime);
         OnFixedUpdate();
     }
