@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 292e071b5df605e4f9b0dba3ee15b4f9
+guid: a1ac35ff1e827184da97e6301f4f426e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -44,10 +44,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 40
+  spritePixelsToUnits: 125
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,43 +102,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -153,13 +117,118 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: roachrun-Sheet_0
+      name: walltiles_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1a673412541fd4fa8928ece6e62967
+      internalID: 767911083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walltiles_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251e6087d7773bd4daee8594847222be
+      internalID: 216784070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walltiles_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6883e2dcabcb49840b39adb9111d1c09
+      internalID: 1645403733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walltiles_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd7abf3a4f35a147bffba0e605a2277
+      internalID: 1357715743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walltiles_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a48d99c3448ddb428280d7658ae932c
+      internalID: 690641303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walltiles_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 40
-        height: 28
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80d414f07602f244ba5591e3c12c2276
-      internalID: -197705004
+      spriteID: a8f5be716132f8c479ec9c5045fd06ee
+      internalID: 2034751907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roachrun-Sheet_1
+      name: walltiles_6
       rect:
         serializedVersion: 2
-        x: 40
+        x: 128
         y: 0
-        width: 40
-        height: 28
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 708d384949565fb4ea335854ff09d6e4
-      internalID: 1192100662
+      spriteID: 802ebb81d0813074bbaa9d8bbfc3971f
+      internalID: -679498583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roachrun-Sheet_2
+      name: walltiles_7
       rect:
         serializedVersion: 2
-        x: 80
+        x: 256
         y: 0
-        width: 40
-        height: 28
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +278,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e530d7aec9c72694da737fccba245560
-      internalID: -1090139368
+      spriteID: bfd520c89ed8f7e468190292500dd7c6
+      internalID: 962629501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roachrun-Sheet_3
+      name: walltiles_8
       rect:
         serializedVersion: 2
-        x: 120
+        x: 384
         y: 0
-        width: 40
-        height: 28
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,50 +299,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30adea4753e300e489cdce7354e9a3f0
-      internalID: -389174513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: roachrun-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 40
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b2009b205aed2745b9710013e1feea0
-      internalID: -219599615
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: roachrun-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 40
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 676bf385bb389f0408a89495cbe4069a
-      internalID: -97363279
+      spriteID: b8413d72cb41f4f4c8efaa18884a2991
+      internalID: 39127255
       vertices: []
       indices: 
       edges: []
@@ -289,12 +316,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      roachrun-Sheet_4: -219599615
-      roachrun-Sheet_5: -97363279
-      roachrun-Sheet_2: -1090139368
-      roachrun-Sheet_3: -389174513
-      roachrun-Sheet_1: 1192100662
-      roachrun-Sheet_0: -197705004
+      walltiles_1: 216784070
+      walltiles_6: -679498583
+      walltiles_3: 1357715743
+      walltiles_2: 1645403733
+      walltiles_5: 2034751907
+      walltiles_8: 39127255
+      walltiles_4: 690641303
+      walltiles_0: 767911083
+      walltiles_7: 962629501
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

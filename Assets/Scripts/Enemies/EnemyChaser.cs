@@ -15,9 +15,4 @@ public class EnemyChaser : BaseEnemy
         bool tooClose = Vector2.Distance(player.transform.position, transform.position) < targetDistance;
         movementDirection = tooClose ? -this.ToPlayer : this.ToPlayer;
     }
-
-
-    public override void AI()
-    {
-    }
 }

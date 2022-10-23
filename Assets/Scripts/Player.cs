@@ -24,14 +24,9 @@ public class Player : BaseEntity
 
     protected GameObject item;
     protected WeaponBehavior weapon;
-    protected Animator animator;
-    protected SpriteRenderer spriteRenderer;
 
     public override void StartHook()
     {
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
         healthBar.UpdateHealthBar(this.health, this.maxHealth);
         alignment = Alignments.Friendly;
         iframeCooldown = iframes;

@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1133673998219090672}
   - component: {fileID: 1133673998219090687}
   - component: {fileID: 8104175322314045607}
+  - component: {fileID: -2586519854107737232}
+  - component: {fileID: -5024065732390890628}
   m_Layer: 7
   m_Name: Melee
   m_TagString: Untagged
@@ -76,9 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 1385164443
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8409067677610051592, guid: 6644dcf3ee0efd04e8a476b3e7039e26,
-    type: 3}
-  m_Color: {r: 0.24175261, g: 0.5471698, b: 0.12130651, a: 1}
+  m_Sprite: {fileID: -197705004, guid: 292e071b5df605e4f9b0dba3ee15b4f9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -126,7 +127,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9285714, y: 1}
+    oldSize: {x: 1, y: 0.7}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -152,3 +153,38 @@ MonoBehaviour:
   activationRange: 8
   contactDamage: 5
   targetDistance: 0
+--- !u!95 &-2586519854107737232
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133673998219090676}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 630f402afc7b4a64d84df0393f6f6dbe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5024065732390890628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133673998219090676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d707b69a66c944291aa6692a67a043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squashSize: {x: 0, y: 0, z: 0}
+  stretchSize: {x: 0, y: 0, z: 0}
+  transformRate: 10

@@ -24,6 +24,8 @@ public class EnemyShooter : EnemyChaser
 
     public override void AI()
     {
+        if (dead)
+            return;
         // Shoot if we exceeded our cooldown, and reset the cooldown
         fireCooldown += Time.deltaTime;
         if (fireCooldown >= fireRate)
@@ -31,6 +33,7 @@ public class EnemyShooter : EnemyChaser
             fireCooldown -= fireRate;
             Shoot();
         }
+        base.AI();
     }
 
     public virtual void Shoot()
