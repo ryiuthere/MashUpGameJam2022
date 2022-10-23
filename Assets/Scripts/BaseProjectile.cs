@@ -21,6 +21,7 @@ public class BaseProjectile : MonoBehaviour
     [SerializeField]
     public int damage;
 
+    protected float currentTimeModifier;
 
     /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED */
     private void Start()
@@ -42,7 +43,9 @@ public class BaseProjectile : MonoBehaviour
         body2D.MovePosition(body2D.position + movementDirection * movementSpeed * Time.fixedDeltaTime);
         // Point the way we're going
         float angle = Mathf.Atan2(movementDirection.y, movementDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.AngleAxis(angle + currentTimeModifier, Vector3.forward);
+        if (alignment == Alignments.Friendly)
+            currentTimeModifier += 10f;
         OnFixedUpdate();
     }
 

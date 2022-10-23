@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1133673998219090687}
   - component: {fileID: 8104175322314045607}
   - component: {fileID: -2586519854107737232}
+  - component: {fileID: -5024065732390890628}
   m_Layer: 7
   m_Name: Melee
   m_TagString: Untagged
@@ -172,3 +173,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5024065732390890628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133673998219090676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d707b69a66c944291aa6692a67a043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squashSize: {x: 0, y: 0, z: 0}
+  stretchSize: {x: 0, y: 0, z: 0}
+  transformRate: 10
