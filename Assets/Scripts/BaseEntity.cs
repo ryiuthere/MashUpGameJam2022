@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+
 public abstract class BaseEntity : MonoBehaviour
 {
     #region Movement
@@ -24,12 +25,16 @@ public abstract class BaseEntity : MonoBehaviour
     public Alignments alignment { get; protected set; }
 
     protected Animator animator;
+    protected SpriteRenderer spriteRenderer;
+    protected SquashAndStretch squashAndStretch;
 
     /** DO NOT OVERRIDE, USE OR ADD NEW HOOKS IF MORE FUNCTIONALITY NEEDED */
     private void Start()
     {
         body2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        squashAndStretch = GetComponent<SquashAndStretch>();
         this.health = this.maxHealth;
         StartHook();
     }
@@ -53,7 +58,6 @@ public abstract class BaseEntity : MonoBehaviour
             return;
         }
         
-        animator.SetBool("Moving", movementDirection != Vector2.zero);
         body2D.MovePosition(body2D.position + movementDirection * movementSpeed * Time.fixedDeltaTime);
         OnFixedUpdate();
     }
