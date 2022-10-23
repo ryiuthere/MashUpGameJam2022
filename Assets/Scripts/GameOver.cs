@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,10 +13,10 @@ public class GameOver : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Gamewon: " + PlayerPrefs.GetInt("gameWon", 235) + ", " + PlayerPrefs.GetInt("exterminations", -1));
+        var timeRemaining = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("timeRemaining", 0)).ToString("mm':'ss'.'fff");
         var win = PlayerPrefs.GetInt("gameWon", 0);
         gameOverTextGUI.text = win == 1 ?
-            string.Format(winText, PlayerPrefs.GetFloat("timeRemaining", 0), PlayerPrefs.GetInt("exterminations", 0)) :
+            string.Format(winText, timeRemaining, PlayerPrefs.GetInt("exterminations", 0)) :
             string.Format(loseText, PlayerPrefs.GetInt("exterminations", 0));
     }
 

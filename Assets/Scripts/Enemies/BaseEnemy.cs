@@ -38,16 +38,20 @@ public class BaseEnemy : BaseEntity
 
     public override void OnDeath()
     {
+        if (dead)
+        {
+            return;
+        }
+        if (countTowardsKills)
+        {
+            PlayerPrefs.SetInt("exterminations", PlayerPrefs.GetInt("exterminations", 0) + 1);
+        }
         dead = true;
         StartCoroutine(Death());
     }
 
     protected IEnumerator Death()
     {
-        if (countTowardsKills)
-        {
-            PlayerPrefs.SetInt("exterminations", PlayerPrefs.GetInt("exterminations", 0) + 1);
-        }
         squashAndStretch.SetToSquash(1);
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
