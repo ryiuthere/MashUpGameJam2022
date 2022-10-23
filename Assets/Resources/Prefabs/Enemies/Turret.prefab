@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 0
   maxHealth: 1
+  isBossEnemy: 0
   activationRange: 15
   contactDamage: 20
   targetDistance: 0

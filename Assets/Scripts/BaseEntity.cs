@@ -74,7 +74,7 @@ public abstract class BaseEntity : MonoBehaviour
         }
         else
         {
-            squashAndStretch.customSquish(new Vector3(0.8f, 1, 1), 0.2f);
+            squashAndStretch.customSquish(0.8f, 1, 0.2f);
         }
     }
 

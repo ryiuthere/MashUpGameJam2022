@@ -7,6 +7,9 @@ using UnityEngine;
 public class BaseEnemy : BaseEntity
 {
     [SerializeField]
+    protected bool isBossEnemy = false;
+
+    [SerializeField]
     protected float activationRange = 12f;
 
     /** Melee damage */
@@ -30,10 +33,23 @@ public class BaseEnemy : BaseEntity
         get => (player.transform.position - this.transform.position).normalized;
     }
 
+    private void Awake()
+    {
+        if (isBossEnemy)
+        {
+            // Needs to occur before start for squash
+            transform.localScale = new Vector3(2, 2);
+        }
+    }
+
     public override void StartHook()
     {
-        this.alignment = Alignments.Enemy;
-        this.player = GameObject.Find("Player");
+        alignment = Alignments.Enemy;
+        player = GameObject.Find("Player");
+        if (isBossEnemy)
+        {
+            spriteRenderer.color = new Color(1, 0.8f, 0.8f);
+        }
     }
 
     public override void OnDeath()
@@ -45,6 +61,10 @@ public class BaseEnemy : BaseEntity
         if (countTowardsKills)
         {
             PlayerPrefs.SetInt("exterminations", PlayerPrefs.GetInt("exterminations", 0) + 1);
+        }
+        if (isBossEnemy)
+        {
+            CountdownTimer.Instance.AddTime(45f);
         }
         var collider = GetComponent<BoxCollider2D>();
         if (collider != null)

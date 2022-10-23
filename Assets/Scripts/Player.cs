@@ -18,9 +18,6 @@ public class Player : BaseEntity
     [SerializeField]
     protected ItemIndicator itemIndicator;
 
-    [SerializeField]
-    protected CountdownTimer timer;
-
     /** Invulnerability seconds after taking damage  */
     [SerializeField]
     protected float iframes = 0.2f;
@@ -82,7 +79,7 @@ public class Player : BaseEntity
         {
             base.OnHit(damage);
             iframeCooldown = 0;
-            squashAndStretch.customSquish(new Vector3(0.8f, 1, 1), 0.2f);
+            squashAndStretch.customSquish(0.8f, 1, 0.2f);
             AudioManager.Instance.PlaySound(SoundType.Hit);
         }
         healthBar.UpdateHealthBar(health, maxHealth);
@@ -96,7 +93,7 @@ public class Player : BaseEntity
 
     public override void OnDeath()
     {
-        PlayerPrefs.SetFloat("timeRemaining", timer.CurrentTime);
+        PlayerPrefs.SetFloat("timeRemaining", CountdownTimer.Instance.CurrentTime);
         PlayerPrefs.SetInt("gameWon", 0);
         PlayerPrefs.Save();
         SceneManager.LoadScene("End Screen");
@@ -118,7 +115,7 @@ public class Player : BaseEntity
 
     public void OnShoot()
     {
-        squashAndStretch.customSquish(new Vector3(1, 0.8f, 1), 0.2f);
+        squashAndStretch.customSquish(1, 0.8f, 0.2f);
     }
 
     public override bool ShouldUpdate()

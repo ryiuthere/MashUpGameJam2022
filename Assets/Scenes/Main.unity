@@ -519,12 +519,12 @@ PrefabInstance:
     - target: {fileID: 1133673998219090673, guid: 65cf1c74f457d824499f31ae6cd4c483,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.20994186
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 1133673998219090673, guid: 65cf1c74f457d824499f31ae6cd4c483,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9608102
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 1133673998219090673, guid: 65cf1c74f457d824499f31ae6cd4c483,
         type: 3}
@@ -570,6 +570,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Melee (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104175322314045607, guid: 65cf1c74f457d824499f31ae6cd4c483,
+        type: 3}
+      propertyPath: isBossEnemy
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65cf1c74f457d824499f31ae6cd4c483, type: 3}

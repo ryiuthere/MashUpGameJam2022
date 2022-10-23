@@ -47,6 +47,12 @@ public class SquashAndStretch : MonoBehaviour
         StartCoroutine(SquishTimer(newSize, duration));
     }
 
+    public void customSquish(float percentageX, float percentageY, float duration)
+    {
+        StopAllCoroutines();
+        StartCoroutine(SquishTimer(new Vector3(originalSize.x * percentageX, originalSize.y * percentageY), duration));
+    }
+
     public void SetToStretch()
     {
         targetSize = stretchSize;
