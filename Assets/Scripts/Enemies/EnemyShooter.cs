@@ -22,6 +22,11 @@ public class EnemyShooter : EnemyChaser
     [SerializeField]
     protected int projectileDamage = 15;
 
+    protected override bool countTowardsKills
+    {
+        get { return true; }
+    }
+
     public override void AI()
     {
         if (dead)

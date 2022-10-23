@@ -19,6 +19,11 @@ public class BaseEnemy : BaseEntity
 
     protected bool dead = false;
 
+    protected virtual bool countTowardsKills
+    {
+        get { return false; }
+    }
+
     /** Get the normalied vector from this enemy to the player. (Convenience function) */
     public Vector2 ToPlayer
     {
@@ -33,6 +38,14 @@ public class BaseEnemy : BaseEntity
 
     public override void OnDeath()
     {
+        if (dead)
+        {
+            return;
+        }
+        if (countTowardsKills)
+        {
+            PlayerPrefs.SetInt("exterminations", PlayerPrefs.GetInt("exterminations", 0) + 1);
+        }
         dead = true;
         StartCoroutine(Death());
     }

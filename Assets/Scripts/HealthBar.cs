@@ -22,4 +22,9 @@ public class HealthBar : MonoBehaviour
 
         healthBarImage.DOColor(newColor, duration);
     }
+
+    private void OnDestroy()
+    {
+        healthBarImage.DOKill();
+    }
 }

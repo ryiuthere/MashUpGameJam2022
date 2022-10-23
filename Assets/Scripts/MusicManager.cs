@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    public static MusicManager Instance { get; private set; }
+
     protected AudioSource source;
 
     [SerializeField]
@@ -24,9 +26,19 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
-        source = GetComponent<AudioSource>();
+        // If there is an instance, and it's not me, delete myself.
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
 
-        // Temporary - this will be removed once we have a title screen plus its music
-        Play();
+            DontDestroyOnLoad(gameObject);
+            source = GetComponent<AudioSource>();
+
+            Play();
+        }
     }
 }
