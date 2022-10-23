@@ -82,6 +82,12 @@ public class Player : BaseEntity
         healthBar.UpdateHealthBar(this.health, this.maxHealth);
     }
 
+    public void Kill()
+    {
+        iframes = iframeCooldown;
+        OnHit(health);
+    }
+
     public override void OnDeath()
     {
         Debug.Log("You died.");
