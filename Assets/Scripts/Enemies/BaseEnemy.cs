@@ -49,6 +49,7 @@ public class BaseEnemy : BaseEntity
         if (isBossEnemy)
         {
             spriteRenderer.color = new Color(1, 0.8f, 0.8f);
+            animator.speed = 0.5f;
         }
     }
 
