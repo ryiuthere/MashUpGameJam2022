@@ -8,6 +8,7 @@ public class StartGame : MonoBehaviour
     protected string levelName;
 
     public void LoadLevel() {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(levelName);
     }
 }

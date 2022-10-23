@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // https://weeklyhow.com/unity-top-down-character-movement/
 // https://stuartspixelgames.com/2018/06/24/simple-2d-top-down-movement-unity-c/
@@ -17,6 +18,9 @@ public class Player : BaseEntity
     [SerializeField]
     protected ItemIndicator itemIndicator;
 
+    [SerializeField]
+    protected CountdownTimer timer;
+
     /** Invulnerability seconds after taking damage  */
     [SerializeField]
     protected float iframes = 0.2f;
@@ -27,7 +31,7 @@ public class Player : BaseEntity
 
     public override void StartHook()
     {
-        healthBar.UpdateHealthBar(this.health, this.maxHealth);
+        healthBar.UpdateHealthBar(health, maxHealth);
         alignment = Alignments.Friendly;
         iframeCooldown = iframes;
         animator.SetBool("Running", false);
@@ -79,7 +83,7 @@ public class Player : BaseEntity
             base.OnHit(damage);
             iframeCooldown = 0;
         }
-        healthBar.UpdateHealthBar(this.health, this.maxHealth);
+        healthBar.UpdateHealthBar(health, maxHealth);
     }
 
     public void Kill()
@@ -90,9 +94,10 @@ public class Player : BaseEntity
 
     public override void OnDeath()
     {
-        Debug.Log("You died.");
-        // @TODO: better death
-        this.transform.rotation = new Quaternion(90, 0, 0, 0);
+        PlayerPrefs.SetFloat("timeRemaining", timer.CurrentTime);
+        PlayerPrefs.SetInt("gameWon", 0);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("End Screen");
     }
 
     public override void AI()

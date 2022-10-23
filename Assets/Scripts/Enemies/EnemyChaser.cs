@@ -9,6 +9,11 @@ public class EnemyChaser : BaseEnemy
     [SerializeField]
     protected float targetDistance = 0;
 
+    protected override bool countTowardsKills
+    {
+        get { return true; }
+    }
+
     public override void Movement()
     {
         // Go towards or away from the player to maintain my target distance
