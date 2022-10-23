@@ -12,10 +12,31 @@ PrefabInstance:
       propertyPath: fireRate
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1218145494684684320, guid: 2b6dcb43d29f31740870545c5fac4493,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 700960008, guid: 5ac686367df90a04fba48dc588cd99d7,
+        type: 3}
     - target: {fileID: 1218145494684684323, guid: 2b6dcb43d29f31740870545c5fac4493,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218145494684684323, guid: 2b6dcb43d29f31740870545c5fac4493,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218145494684684323, guid: 2b6dcb43d29f31740870545c5fac4493,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218145494684684323, guid: 2b6dcb43d29f31740870545c5fac4493,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1218145494684684323, guid: 2b6dcb43d29f31740870545c5fac4493,
         type: 3}
