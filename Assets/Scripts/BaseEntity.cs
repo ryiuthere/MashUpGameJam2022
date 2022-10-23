@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 public abstract class BaseEntity : MonoBehaviour
 {
@@ -64,10 +65,16 @@ public abstract class BaseEntity : MonoBehaviour
 
     /** Triggered when damage is taken, should almost always call base.OnHit() when overriding*/
     public virtual void OnHit(int damage) {
-        // @TODO: finish once projectiles exist
-        this.health = Math.Max(0, this.health - damage);
-        if (this.health <= 0) {
+        if (health == 0)
+            return;
+
+        health = Math.Max(0, health - damage);
+        if (health <= 0) {
             OnDeath();
+        }
+        else
+        {
+            squashAndStretch.customSquish(new Vector3(0.8f, 1, 1), 0.2f);
         }
     }
 

@@ -82,6 +82,8 @@ public class Player : BaseEntity
         {
             base.OnHit(damage);
             iframeCooldown = 0;
+            squashAndStretch.customSquish(new Vector3(0.8f, 1, 1), 0.2f);
+            AudioManager.Instance.PlaySound(SoundType.Hit);
         }
         healthBar.UpdateHealthBar(health, maxHealth);
     }
@@ -112,6 +114,11 @@ public class Player : BaseEntity
                 weapon.Attack(this);
             }
         }
+    }
+
+    public void OnShoot()
+    {
+        squashAndStretch.customSquish(new Vector3(1, 0.8f, 1), 0.2f);
     }
 
     public override bool ShouldUpdate()

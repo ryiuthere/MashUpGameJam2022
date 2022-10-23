@@ -46,12 +46,18 @@ public class BaseEnemy : BaseEntity
         {
             PlayerPrefs.SetInt("exterminations", PlayerPrefs.GetInt("exterminations", 0) + 1);
         }
+        var collider = GetComponent<BoxCollider2D>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
         dead = true;
         StartCoroutine(Death());
     }
 
     protected IEnumerator Death()
     {
+        AudioManager.Instance.PlaySound(SoundType.Explosion);
         squashAndStretch.SetToSquash(1);
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
@@ -84,6 +90,12 @@ public class BaseEnemy : BaseEntity
 
         spriteRenderer.flipX = player.transform.position.x - transform.position.x > 0;
         animator.SetBool("Moving", movementDirection != Vector2.zero);
+    }
+
+    public override void OnHit(int damage)
+    {
+        base.OnHit(damage);
+        AudioManager.Instance.PlaySound(SoundType.Hit);
     }
 
     public override bool ShouldUpdate()

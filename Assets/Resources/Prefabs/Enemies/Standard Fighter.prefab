@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1.8
   maxHealth: 45
-  activationRange: 8
+  activationRange: 10
   contactDamage: 20
   targetDistance: 5
   projectile: {fileID: 1822053873960159841, guid: b794b5a900051ff4387e5d5a94d47284,

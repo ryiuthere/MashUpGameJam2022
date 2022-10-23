@@ -24,7 +24,6 @@ public class Crosshair : MonoBehaviour
 
     void OnDestroy()
     {
-        // @TODO: I think this will get the cursor back for the menus, but may need testing
         Cursor.visible = true;
     }
 }

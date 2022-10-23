@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 2.4
   maxHealth: 50
-  activationRange: 8
+  activationRange: 10
   contactDamage: 5
   targetDistance: 0
 --- !u!95 &-2586519854107737232

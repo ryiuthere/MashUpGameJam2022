@@ -23,6 +23,8 @@ public class SingleProjectileWeapon : WeaponBehavior {
             var mouseWorldCoordinates = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var towardsMouse = (mouseWorldCoordinates - player.transform.position).normalized;
             projectileScript.movementDirection = towardsMouse;
+            AudioManager.Instance.PlaySound(SoundType.PlayerShoot);
+            player.OnShoot();
         }
     }
 
