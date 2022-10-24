@@ -59,7 +59,8 @@ public abstract class BaseEntity : MonoBehaviour
             return;
         }
         
-        body2D.MovePosition(body2D.position + movementDirection * movementSpeed * Time.fixedDeltaTime);
+        if (body2D.bodyType != RigidbodyType2D.Static)
+            body2D.MovePosition(body2D.position + movementDirection * movementSpeed * Time.fixedDeltaTime);
         OnFixedUpdate();
     }
 

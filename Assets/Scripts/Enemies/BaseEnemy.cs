@@ -48,7 +48,7 @@ public class BaseEnemy : BaseEntity
         player = GameObject.Find("Player");
         if (isBossEnemy)
         {
-            spriteRenderer.color = new Color(1, 0.8f, 0.8f);
+            spriteRenderer.color = new Color(1, 0.7f, 0.7f);
             animator.speed = 0.5f;
         }
     }
@@ -65,7 +65,7 @@ public class BaseEnemy : BaseEntity
         }
         if (isBossEnemy)
         {
-            CountdownTimer.Instance.AddTime(45f);
+            CountdownTimer.Instance.AddTime(30f);
         }
         var collider = GetComponent<BoxCollider2D>();
         if (collider != null)
@@ -117,6 +117,8 @@ public class BaseEnemy : BaseEntity
     {
         base.OnHit(damage);
         AudioManager.Instance.PlaySound(SoundType.Hit);
+        if (!_activated)
+            _activated = true;
     }
 
     public override bool ShouldUpdate()
@@ -133,6 +135,13 @@ public class BaseEnemy : BaseEntity
             if (LoS.collider.GetComponentInParent<Player>() != null)
             {
                 _activated = true;
+                foreach(var enemy in FindObjectsOfType<BaseEnemy>())
+                {
+                    if (Vector2.Distance(transform.position, enemy.transform.position) < 3)
+                    {
+                        enemy._activated = true;
+                    }
+                }
             }
 
         }

@@ -41,12 +41,12 @@ PrefabInstance:
     - target: {fileID: 1218145494684684323, guid: 2b6dcb43d29f31740870545c5fac4493,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.23
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 1218145494684684323, guid: 2b6dcb43d29f31740870545c5fac4493,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.63
+      value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 1218145494684684323, guid: 2b6dcb43d29f31740870545c5fac4493,
         type: 3}
@@ -91,7 +91,27 @@ PrefabInstance:
     - target: {fileID: 1218145494684684327, guid: 2b6dcb43d29f31740870545c5fac4493,
         type: 3}
       propertyPath: m_Name
-      value: AssaultProjectileWeapon
+      value: AssaultProjectileWeapon (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 779391303160229596, guid: 2b6dcb43d29f31740870545c5fac4493, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2b6dcb43d29f31740870545c5fac4493, type: 3}
+--- !u!1 &4226677618616297517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1218145494684684327, guid: 2b6dcb43d29f31740870545c5fac4493,
+    type: 3}
+  m_PrefabInstance: {fileID: 3048818449093212170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &647746491083330200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4226677618616297517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ebd9b5b77877844086d73481e08bc75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.5

@@ -69,7 +69,7 @@ public class Player : BaseEntity
 
         if (movementDirection.x != 0 && movementDirection.y != 0)
         {
-            movementDirection *= moveLimiter;
+            movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);
         }
     }
 
@@ -115,7 +115,7 @@ public class Player : BaseEntity
 
     public void OnShoot()
     {
-        squashAndStretch.customSquish(1, 0.8f, 0.2f);
+        squashAndStretch.customSquish(1, 0.8f, 0.15f);
     }
 
     public override bool ShouldUpdate()
@@ -134,7 +134,7 @@ public class Player : BaseEntity
     }
 
     public void Heal(int healing) {
-        health = Mathf.Clamp(healing, 0, maxHealth);
-        healthBar.UpdateHealthBar(this.health, this.maxHealth);
+        health = Mathf.Clamp(health + healing, 0, maxHealth);
+        healthBar.UpdateHealthBar(health, maxHealth);
     }
 }

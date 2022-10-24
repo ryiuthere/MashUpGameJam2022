@@ -33,12 +33,12 @@ public class CountdownTimer : MonoBehaviour
         activated = true;
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         if (!activated)
             return;
 
-        CurrentTime -=  Time.deltaTime;
+        CurrentTime -= Time.fixedDeltaTime;
         if (CurrentTime < 0)
         {
             CurrentTime = 0;
@@ -48,10 +48,12 @@ public class CountdownTimer : MonoBehaviour
         }
         var time = TimeSpan.FromSeconds(CurrentTime);
         textMesh.text = time.ToString("mm':'ss'.'fff");
+        textMesh.color = Color.Lerp(textMesh.color, Color.white, 0.05f);
     }
 
     public void AddTime(float seconds)
     {
         CurrentTime += seconds;
+        textMesh.color = Color.green;
     }
 }
