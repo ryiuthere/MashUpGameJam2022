@@ -109,7 +109,8 @@ public class BaseEnemy : BaseEntity
         if (dead)
             return;
 
-        spriteRenderer.flipX = player.transform.position.x - transform.position.x > 0;
+        if (countTowardsKills)
+            spriteRenderer.flipX = player.transform.position.x - transform.position.x > 0;
         animator.SetBool("Moving", movementDirection != Vector2.zero);
     }
 

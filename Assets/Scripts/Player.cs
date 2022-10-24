@@ -67,9 +67,9 @@ public class Player : BaseEntity
 
         }
 
-        if (movementDirection.x != 0 && movementDirection.y != 0)
+        if (movementDirection.x != 0 || movementDirection.y != 0)
         {
-            movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);
+            movementDirection = movementDirection / movementDirection.magnitude;
         }
     }
 
