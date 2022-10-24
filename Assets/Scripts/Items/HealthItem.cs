@@ -8,5 +8,6 @@ public class HealthItem : BaseItem
     public override void OnPickup(Player player)
     {
         player.Heal(healAmount);
+        AudioManager.Instance.PlaySound(SoundType.Heal);
     }
 }

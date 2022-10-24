@@ -7,6 +7,9 @@ using UnityEngine;
 public class BaseEnemy : BaseEntity
 {
     [SerializeField]
+    protected bool isBossEnemy = false;
+
+    [SerializeField]
     protected float activationRange = 12f;
 
     /** Melee damage */
@@ -30,10 +33,24 @@ public class BaseEnemy : BaseEntity
         get => (player.transform.position - this.transform.position).normalized;
     }
 
+    private void Awake()
+    {
+        if (isBossEnemy)
+        {
+            // Needs to occur before start for squash
+            transform.localScale = new Vector3(2, 2);
+        }
+    }
+
     public override void StartHook()
     {
-        this.alignment = Alignments.Enemy;
-        this.player = GameObject.Find("Player");
+        alignment = Alignments.Enemy;
+        player = GameObject.Find("Player");
+        if (isBossEnemy)
+        {
+            spriteRenderer.color = new Color(1, 0.7f, 0.7f);
+            animator.speed = 0.5f;
+        }
     }
 
     public override void OnDeath()
@@ -46,12 +63,22 @@ public class BaseEnemy : BaseEntity
         {
             PlayerPrefs.SetInt("exterminations", PlayerPrefs.GetInt("exterminations", 0) + 1);
         }
+        if (isBossEnemy)
+        {
+            CountdownTimer.Instance.AddTime(30f);
+        }
+        var collider = GetComponent<BoxCollider2D>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
         dead = true;
         StartCoroutine(Death());
     }
 
     protected IEnumerator Death()
     {
+        AudioManager.Instance.PlaySound(SoundType.Explosion);
         squashAndStretch.SetToSquash(1);
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
@@ -86,6 +113,14 @@ public class BaseEnemy : BaseEntity
         animator.SetBool("Moving", movementDirection != Vector2.zero);
     }
 
+    public override void OnHit(int damage)
+    {
+        base.OnHit(damage);
+        AudioManager.Instance.PlaySound(SoundType.Hit);
+        if (!_activated)
+            _activated = true;
+    }
+
     public override bool ShouldUpdate()
     {
         if (dead) return false;
@@ -100,6 +135,13 @@ public class BaseEnemy : BaseEntity
             if (LoS.collider.GetComponentInParent<Player>() != null)
             {
                 _activated = true;
+                foreach(var enemy in FindObjectsOfType<BaseEnemy>())
+                {
+                    if (Vector2.Distance(transform.position, enemy.transform.position) < 3)
+                    {
+                        enemy._activated = true;
+                    }
+                }
             }
 
         }

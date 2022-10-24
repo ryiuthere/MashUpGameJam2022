@@ -32,6 +32,8 @@ public class MultiProjectileWeapon : WeaponBehavior
             projectileScript1.movementDirection = towardsMouse.normalized;
             projectileScript2.movementDirection = (Quaternion.Euler(0, 0, -20) * towardsMouse).normalized;
             projectileScript3.movementDirection = (Quaternion.Euler(0, 0, 20) * towardsMouse).normalized;
+            AudioManager.Instance.PlaySound(SoundType.PlayerShoot);
+            player.OnShoot();
         }
     }
 

@@ -18,9 +18,6 @@ public class Player : BaseEntity
     [SerializeField]
     protected ItemIndicator itemIndicator;
 
-    [SerializeField]
-    protected CountdownTimer timer;
-
     /** Invulnerability seconds after taking damage  */
     [SerializeField]
     protected float iframes = 0.2f;
@@ -72,7 +69,7 @@ public class Player : BaseEntity
 
         if (movementDirection.x != 0 && movementDirection.y != 0)
         {
-            movementDirection *= moveLimiter;
+            movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);
         }
     }
 
@@ -82,6 +79,8 @@ public class Player : BaseEntity
         {
             base.OnHit(damage);
             iframeCooldown = 0;
+            squashAndStretch.customSquish(0.8f, 1, 0.2f);
+            AudioManager.Instance.PlaySound(SoundType.Hit);
         }
         healthBar.UpdateHealthBar(health, maxHealth);
     }
@@ -94,7 +93,7 @@ public class Player : BaseEntity
 
     public override void OnDeath()
     {
-        PlayerPrefs.SetFloat("timeRemaining", timer.CurrentTime);
+        PlayerPrefs.SetFloat("timeRemaining", CountdownTimer.Instance.CurrentTime);
         PlayerPrefs.SetInt("gameWon", 0);
         PlayerPrefs.Save();
         SceneManager.LoadScene("End Screen");
@@ -114,6 +113,11 @@ public class Player : BaseEntity
         }
     }
 
+    public void OnShoot()
+    {
+        squashAndStretch.customSquish(1, 0.8f, 0.15f);
+    }
+
     public override bool ShouldUpdate()
     {
         return health > 0;
@@ -130,7 +134,7 @@ public class Player : BaseEntity
     }
 
     public void Heal(int healing) {
-        health = Mathf.Clamp(healing, 0, maxHealth);
-        healthBar.UpdateHealthBar(this.health, this.maxHealth);
+        health = Mathf.Clamp(health + healing, 0, maxHealth);
+        healthBar.UpdateHealthBar(health, maxHealth);
     }
 }

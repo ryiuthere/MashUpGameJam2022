@@ -50,5 +50,7 @@ public class EnemyShooter : EnemyChaser
         projScript.alignment = alignment;
         projScript.movementSpeed = projectileSpeed;
         projScript.damage = projectileDamage;
+        squashAndStretch.customSquish(1, 0.7f, 0.2f);
+        AudioManager.Instance.PlaySound(SoundType.EnemyShoot);
     }
 }

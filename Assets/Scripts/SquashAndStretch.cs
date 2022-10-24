@@ -32,6 +32,7 @@ public class SquashAndStretch : MonoBehaviour
 
     public void SetToSquash(float duration)
     {
+        StopAllCoroutines();
         StartCoroutine(SquashTimer(duration));
     }
 
@@ -42,7 +43,14 @@ public class SquashAndStretch : MonoBehaviour
 
     public void customSquish(Vector3 newSize, float duration)
     {
+        StopAllCoroutines();
         StartCoroutine(SquishTimer(newSize, duration));
+    }
+
+    public void customSquish(float percentageX, float percentageY, float duration)
+    {
+        StopAllCoroutines();
+        StartCoroutine(SquishTimer(new Vector3(originalSize.x * percentageX, originalSize.y * percentageY), duration));
     }
 
     public void SetToStretch()
@@ -52,6 +60,7 @@ public class SquashAndStretch : MonoBehaviour
 
     public void SetToStretch(float duration)
     {
+        StopAllCoroutines();
         StartCoroutine(StretchTimer(duration));
     }
 
@@ -80,5 +89,4 @@ public class SquashAndStretch : MonoBehaviour
         yield return new WaitForSeconds(duration);
         targetSize = originalSize;
     }
-
 }

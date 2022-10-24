@@ -26,7 +26,6 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
-        // If there is an instance, and it's not me, delete myself.
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -34,11 +33,10 @@ public class MusicManager : MonoBehaviour
         else
         {
             Instance = this;
-
-            DontDestroyOnLoad(gameObject);
-            source = GetComponent<AudioSource>();
-
-            Play();
         }
+        DontDestroyOnLoad(gameObject);
+        source = GetComponent<AudioSource>();
+
+        Play();
     }
 }

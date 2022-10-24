@@ -1,5 +1,5 @@
 public class MultiProjectileWeaponItem : WeaponItem {
-    public MultiProjectileWeaponItem() {
+    void Start() {
         behavior = new MultiProjectileWeapon(fireRate);
     }
 }

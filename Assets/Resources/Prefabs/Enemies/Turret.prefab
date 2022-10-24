@@ -149,8 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0
-  maxHealth: 0
-  activationRange: 8
+  maxHealth: 1
+  isBossEnemy: 0
+  activationRange: 15
   contactDamage: 20
   targetDistance: 0
   projectile: {fileID: 1822053873960159841, guid: b794b5a900051ff4387e5d5a94d47284,

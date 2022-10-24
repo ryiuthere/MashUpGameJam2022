@@ -10,8 +10,8 @@ namespace Assets.Scripts
             Player target = collision.gameObject.GetComponentInParent<Player>();
             if (target != null)
             {
-                var timeLeft = GameObject.Find("CountdownTimer")?.GetComponent<CountdownTimer>()?.CurrentTime;
-                PlayerPrefs.SetFloat("timeRemaining", timeLeft ?? 0);
+                var timeLeft = CountdownTimer.Instance.CurrentTime;
+                PlayerPrefs.SetFloat("timeRemaining", timeLeft);
                 PlayerPrefs.SetInt("gameWon", 1);
                 PlayerPrefs.Save();
                 SceneManager.LoadScene("End Screen");

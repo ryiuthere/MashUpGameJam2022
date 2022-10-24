@@ -6,9 +6,12 @@ using UnityEngine;
 
 public class CountdownTimer : MonoBehaviour
 {
-    public float TotalSeconds = 180;
+    public static CountdownTimer Instance { get; private set; }
 
-    public float CurrentTime { get; set; }
+    [SerializeField]
+    private float TotalSeconds = 180;
+
+    public float CurrentTime { get; private set; }
 
     [SerializeField]
     protected TextMeshProUGUI textMesh;
@@ -17,16 +20,25 @@ public class CountdownTimer : MonoBehaviour
 
     void Start()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+
         CurrentTime = TotalSeconds;
         activated = true;
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         if (!activated)
             return;
 
-        CurrentTime -=  Time.deltaTime;
+        CurrentTime -= Time.fixedDeltaTime;
         if (CurrentTime < 0)
         {
             CurrentTime = 0;
@@ -36,5 +48,12 @@ public class CountdownTimer : MonoBehaviour
         }
         var time = TimeSpan.FromSeconds(CurrentTime);
         textMesh.text = time.ToString("mm':'ss'.'fff");
+        textMesh.color = Color.Lerp(textMesh.color, Color.white, 0.05f);
+    }
+
+    public void AddTime(float seconds)
+    {
+        CurrentTime += seconds;
+        textMesh.color = Color.green;
     }
 }
