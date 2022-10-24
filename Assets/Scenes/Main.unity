@@ -78488,7 +78488,7 @@ PrefabInstance:
     - target: {fileID: 8104175322314045607, guid: 65cf1c74f457d824499f31ae6cd4c483,
         type: 3}
       propertyPath: contactDamage
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8104175322314045607, guid: 65cf1c74f457d824499f31ae6cd4c483,
         type: 3}
