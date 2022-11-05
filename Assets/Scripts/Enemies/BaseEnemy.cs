@@ -130,7 +130,7 @@ public class BaseEnemy : BaseEntity
         // Only check LoS if in range to save computation
         if (inRange) {
             // layer mask only allows it to see things on the default layer, which should be the player's melee htibox and walls
-            LayerMask mask = LayerMask.GetMask(new string[] { "Default" });
+            LayerMask mask = LayerMask.GetMask(new string[] { "Default", "WallInteraction" });
             RaycastHit2D LoS = Physics2D.Raycast(gameObject.transform.position,  this.ToPlayer, activationRange, mask);
             // Should be terrain or the player's melee hitbox
             if (LoS.collider.GetComponentInParent<Player>() != null)
